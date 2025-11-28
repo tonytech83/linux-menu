@@ -1,8 +1,21 @@
 [package]
-name = "something"
+name = "linux-menu"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 crossterm = "0.28.1"
 ratatui = "0.28.1"
+
+[[bin]]
+name = "linux-menu"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+incremental = false
